@@ -40,7 +40,7 @@ class Droid(CouruscantTeam): #This is the second child class
         print('Name: ', self.name)
         print('Type: ', self.type)
         
-class Imperial(CouruscantTeam): #This is the second child class
+class Imperial(CouruscantTeam): #This is the third child class
     def __init__(self, Name, CallSign, Position):
         CouruscantTeam.__init__(self, Name)
         self.call_sign = CallSign
