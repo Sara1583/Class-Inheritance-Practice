@@ -1,0 +1,78 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Jan 30 18:44:40 2019
+
+@author: sarasharick
+"""
+
+#Class Inheritance Practice 1
+
+"""If you are familiar with the Star Wars: X-Wing novels published by Bantam Books in the 1990s, these names will be familiar to you. Run all the code together to see the six characters printed out"""
+
+class CouruscantTeam: #This is the parent class
+    def __init__(self, Name): 
+        self.name = Name #Object attributes that will apply to all classes
+        
+class Rebel(CouruscantTeam): #This is the first child class
+    def __init__(self, Name, FirstName, CallSign, Team, Frame): #Child classes are initialized with the arguments from the parent class, and then its own arguments
+        
+        CouruscantTeam.__init__(self, Name) #The parent class initializer is called in each child class
+        self.first_name = FirstName #Object attributes that apply to this child class
+        self.call_sign = CallSign
+        self.team = Team
+        self.ship = Frame
+        
+    def show_member_details(self): #Function to print out a member of the child class
+        print('First Name: ', self.first_name)
+        print('Last Name: ', self.name)
+        print('Call Sign: ', self.call_sign)
+        print('Team: ', self.team)
+        print('Ship: ', self.ship)
+        
+        
+class Droid(CouruscantTeam): #This is the second child class
+    def __init__(self, Name, Type):
+        CouruscantTeam.__init__(self, Name)
+        self.type = Type
+        
+    def show_member_details(self):
+        print('Name: ', self.name)
+        print('Type: ', self.type)
+        
+class Imperial(CouruscantTeam): #This is the second child class
+    def __init__(self, Name, CallSign, Position):
+        CouruscantTeam.__init__(self, Name)
+        self.call_sign = CallSign
+        self.position = Position
+        
+    def show_member_details(self):
+        print('Name: ', self.name)
+        print('Position: ', self.position)
+        print('Call Sign: ', self.call_sign)
+        
+def main(): #Creates members of the various child classes; arguments must be in the order of the initializer, but will print out in the order of the show_member_details function
+    
+    #create new object
+    person_01 = Rebel('Antilles', 'Wedge', 'Rogue Leader',  'Pilot', 'X-Wing')
+    person_02 = Rebel('Terrik', 'Mirax', 'None',  'Support', 'Pulsar Skate')
+    Droid_01 = Droid ('Whistler', 'Astromech')
+    Droid_02 = Droid('Emtry', 'Protocol Droid')
+    person_03 = Rebel('N/A', 'Winter', 'Targeter',  'Intel', 'None')
+    imperial_01 = Imperial('Isard', 'Ice Heart', 'Director')
+    
+    #Display member details
+    person_01.show_member_details()
+    print()
+    person_02.show_member_details()
+    print()
+    person_03.show_member_details()
+    print()
+    Droid_01.show_member_details()
+    print()
+    Droid_02.show_member_details()
+    print()
+    imperial_01.show_member_details()
+
+#Start program    
+main()

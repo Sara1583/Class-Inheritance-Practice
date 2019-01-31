@@ -1,0 +1,79 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Jan 30 18:59:55 2019
+
+@author: sarasharick
+"""
+
+#Class Inheritance Practice 2
+
+
+
+class OriginalCharacter(object): #This is the parent class
+    
+    def __init__(self, firstname, lastname, affiliation):
+        self.firstname = firstname  #Object attributes that will apply to all classes
+        self.lastname = lastname
+        self.affiliation = affiliation
+        
+    def print_OC(self): #Function to print out a member of the child class
+        print(f'{self.firstname} {self.lastname} of the {self.affiliation}')
+        
+        
+        
+class ForceUser(OriginalCharacter):  #This is the first child class
+    def __init__(self, firstname, lastname, affiliation, sabercolor):  #Child classes are initialized with the arguments from the parent class, and then its own arguments
+        OriginalCharacter.__init__(self, firstname, lastname, affiliation)
+        self.color = sabercolor  #Object attributes that apply to this child class
+        
+    def print_user(self):
+        print(f'{self.firstname} {self.lastname} has a {self.color} lightsaber')
+        
+        
+        
+class Civilian(OriginalCharacter):  #This is the second child class
+    def __init__(self, firstname, lastname, affiliation, job):
+        OriginalCharacter.__init__(self, firstname, lastname, affiliation)
+        self.job = job
+        
+    def print_civilian(self):
+        print(f'{self.firstname} {self.lastname} works at {self.job}')
+        
+        
+        
+class Government(OriginalCharacter):  #This is the third child class
+    def __init__(self, firstname, lastname, affiliation, position):
+        OriginalCharacter.__init__(self, firstname, lastname, affiliation)
+        self.position = position
+        
+    def print_government(self):
+        print(f'{self.firstname} {self.lastname} works at {self.position}')
+        
+        
+        
+"""Once the above code has run, you can create a new character of any class by using the character name as the variable and assigning to it the class and its attributes. Then print the character and attributes. Un-comment the lines below to test it"""
+
+#Rayna = Government('Rayna', "N'Callah", 'Naboo', 'Naboo Security Directorate')
+#OriginalCharacter.print_OC(Rayna)
+#print()
+#Government.print_government(Rayna)
+#print()
+#Elena = ForceUser('Elena', "T'sil", 'Gray Force', 'red')
+#OriginalCharacter.print_OC(Elena)
+#print()
+#ForceUser.print_user(Elena)
+#print()
+#Eris = Civilian('Eris', 'UNK', 'Naboo', "N'Callah Family Guest House receptionist")
+#OriginalCharacter.print_OC(Eris)
+#print()
+#Civilian.print_civilian(Eris)
+#print()
+
+
+
+
+
+
+
+
